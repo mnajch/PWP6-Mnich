@@ -40,13 +40,15 @@ class MateuszMnichModuleWidget(ScriptedLoadableModuleWidget):
   def setup(self):
     ScriptedLoadableModuleWidget.setup(self)
 
+
+
     # Instantiate and connect widgets ...
 
     #
     # Parameters Area
     #
     parametersCollapsibleButton = ctk.ctkCollapsibleButton()
-    parametersCollapsibleButton.text = "Parameters"
+    parametersCollapsibleButton.text = "Modele"
     self.layout.addWidget(parametersCollapsibleButton)
 
     # Layout within the dummy collapsible button
@@ -56,11 +58,11 @@ class MateuszMnichModuleWidget(ScriptedLoadableModuleWidget):
     # Zaladowanie modelu
     #
     self.inputSelector = slicer.qMRMLNodeComboBox()
-    self.inputSelector.nodeTypes = ["vtkMRMLScalarVolumeNode"]
+    self.inputSelector.nodeTypes = ["vtkMRMLModelNode"]
     self.inputSelector.selectNodeUponCreation = True
     self.inputSelector.addEnabled = False
-    self.inputSelector.removeEnabled = False
-    self.inputSelector.noneEnabled = False
+    self.inputSelector.removeEnabled = True
+    self.inputSelector.noneEnabled = True
     self.inputSelector.showHidden = False
     self.inputSelector.showChildNodeTypes = False
     self.inputSelector.setMRMLScene( slicer.mrmlScene )
